@@ -29,3 +29,16 @@ case $? in
 		echo "An error has occurred!"
 		;;
 esac
+
+flag=0
+	while((flag==0))
+	do
+		id=$(($RANDOM%10000+1))
+		echo $id
+		count=$(cut -d \| -f 1 file.txt | grep $id |wc -l)
+		if((count==0))
+		then
+			flag=1
+		fi
+	done
+echo $id >> file.txt
