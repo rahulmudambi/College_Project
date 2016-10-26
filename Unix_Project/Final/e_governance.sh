@@ -33,7 +33,7 @@ do
 		1)
 			zenity --forms --title="Add Member" \
 				--text="Enter information about the member:" \
-				--separator=" " \
+				--separator="|" \
 				--add-entry="First Name" \
 				--add-entry="Middle Name" \
 				--add-entry="Last Name" \
@@ -53,6 +53,20 @@ do
 			case $? in
 				0) 
 					echo "Member added!"
+					flag=0
+       					while [ $flag == 0 ]
+       					do
+						#$RANDOM function generates a random number which ranges from 0 to 32,767
+     				        	id=$(echo "$RANDOM+1" | bc) 
+  				                echo $id
+ 				                count=$(cut -d \| -f 1 id_file | grep $id |wc -l)
+						echo $count
+                		 		if [ $count == 0 ]
+               					then
+                			        	flag=1
+             					fi
+        				done
+					echo "Member id : $id"
 					;;
 				1)
 					echo "No Member added!"
@@ -63,6 +77,9 @@ do
 			esac
 			;;
 		2)
+			#id=$(zenity --entry --title="Delete" --text="Enter ID of the member to be deleted:")
+			cut -d '|' -f 1  file.txt | paste -d '		'  id_file - | zenity --list --column="I.D." --column="First Name" 
+			
 			;;
 		3)
 			;;
