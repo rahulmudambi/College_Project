@@ -77,9 +77,13 @@ do
 			esac
 			;;
 		2)
-			#id=$(zenity --entry --title="Delete" --text="Enter ID of the member to be deleted:")
-			cut -d '|' -f 1  file.txt | paste -d '		'  id_file - | zenity --list --column="I.D." --column="First Name" 
-			
+			cut -d \| -f 1 file.txt | paste id_file - >> id_name.csv
+			zenity --list \
+				--title="Delete Member" \
+				--text="Choose the member whose data must be deleted:" \
+				--column="I.D." \
+				--column="Name" \
+				$(tr '\n\t' '  ' < id_name.csv)
 			;;
 		3)
 			;;
