@@ -1,0 +1,115 @@
+package todoApp;
+
+import java.io.Serializable;
+import java.util.Date;
+
+public class TaskBean implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String name;
+	private String desc;
+	private Date startDt;
+	private Date endDt;
+	private String status;
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDesc() {
+		return desc;
+	}
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+	public Date getStartDt() {
+		return startDt;
+	}
+	public void setStartDt(Date startDt) {
+		this.startDt = startDt;
+	}
+	public Date getEndDt() {
+		return endDt;
+	}
+	public void setEndDt(Date endDt) {
+		this.endDt = endDt;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	public TaskBean() {
+		// TODO Auto-generated constructor stub
+	}
+	public TaskBean(String name, String desc, Date startDt, Date endDt,
+			String status) {
+		super();
+		this.name = name;
+		this.desc = desc;
+		this.startDt = startDt;
+		this.endDt = endDt;
+		this.status = status;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((desc == null) ? 0 : desc.hashCode());
+		result = prime * result + ((endDt == null) ? 0 : endDt.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((startDt == null) ? 0 : startDt.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TaskBean other = (TaskBean) obj;
+		if (desc == null) {
+			if (other.desc != null)
+				return false;
+		} else if (!desc.equals(other.desc))
+			return false;
+		if (endDt == null) {
+			if (other.endDt != null)
+				return false;
+		} else if (!endDt.equals(other.endDt))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (startDt == null) {
+			if (other.startDt != null)
+				return false;
+		} else if (!startDt.equals(other.startDt))
+			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "TaskBean [name=" + name + ", desc=" + desc + ", startDt="
+				+ startDt + ", endDt=" + endDt + ", status=" + status + "]";
+	}
+	
+}

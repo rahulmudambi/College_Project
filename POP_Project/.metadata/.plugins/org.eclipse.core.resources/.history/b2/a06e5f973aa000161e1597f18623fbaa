@@ -1,0 +1,96 @@
+package todoApp;
+
+import java.util.*;
+
+public class StartApp {
+
+	public static void main(String[] args) {displayMainMenu();}
+	
+	public static void displayMainMenu(){
+		
+		TodoModel model = new TodoModel();
+		
+		System.out.println("Create Category");
+		System.out.println("Load Category");
+		System.out.println("Search");
+		System.out.println("List");
+		System.out.println("Exit");
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter choice:");
+		
+		int n = sc.nextInt();
+		
+		switch(n)
+		{
+		case 1: 
+			System.out.println("Enter Category Name:");
+			String category_name = sc.next();
+			boolean exists = model.checkIfCategoryExists(category_name,1);
+			if(exists)
+				System.out.println("Category successfully created");
+			else
+				System.out.println("Given name already exists...Cannot create the required category!!");
+			
+			displayTaskMenu();
+			
+			break;
+		case 2: 
+			System.out.println("Enter the Category Name:");
+			String category_nam = sc.next();
+			boolean exist = model.checkIfCategoryExists(category_nam,2);
+			if(exist)
+				System.out.println("No Such Category....");
+			else
+				displayTaskMenu();
+			
+			break;
+		case 3: 
+			
+			break;
+		case 4: 
+			
+			break;
+		case 5: 
+			System.out.println("Bye!See you soon...");
+			break;
+		default:
+			System.out.println("Invalid Option!");
+		}
+		
+		sc.close();
+		
+
+	}
+	
+	private static void displayTaskMenu()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("1)Add a task\n2)Edit a task\n3)Remove a task\n4)List the tasks\n5)Go back\n");
+		
+		int k = sc.nextInt();
+		switch(k)
+		{
+		case 1:
+			System.out.println("Enter task name");
+			System.out.println("Enter name and Description....");
+			TaskBean newtask = new TaskBean();
+			
+			
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:displayMainMenu();
+			break;
+		}
+		
+		sc.close();
+		
+	}
+
+}

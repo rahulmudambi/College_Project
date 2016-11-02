@@ -1,0 +1,11 @@
+package todoApp;
+
+public class TaskBean {
+	public String name;
+	public String desc;
+	public String cr_dt;
+	public String end_dt;
+	public char priority;
+	public String status;
+	public String[] tags;
+}

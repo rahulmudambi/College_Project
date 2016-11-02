@@ -1,0 +1,13 @@
+package todoApp;
+
+import java.io.Serializable;
+
+public class TaskBean implements Serializable{
+	public String name;
+	public String desc;
+	public String cr_dt;
+	public String end_dt;
+	public transient char priority;
+	public String status;
+	public String tags;
+}
